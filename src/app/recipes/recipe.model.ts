@@ -19,7 +19,7 @@ export class RecipeModel {
   }
 
   get description() {
-    return this.description;
+    return this._description;
   }
 
   set description(value: string) {
