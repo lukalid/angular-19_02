@@ -7,20 +7,15 @@ import {Component, OnInit} from '@angular/core';
 })
 export class AppComponent implements OnInit {
 
-  recipesClicked = false;
-  shoppingListClicked = true;
+  loadedFeature = 'recipe';
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  onRecipesClicked(recipesClicked) {
-    this.recipesClicked = recipesClicked;
-  }
-
-  onShoppingListClicked(shoppingListClicked) {
-    this.shoppingListClicked = shoppingListClicked;
+  onNavigate(feature: string) {
+    this.loadedFeature = feature;
   }
 
 }
