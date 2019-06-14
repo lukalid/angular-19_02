@@ -1,7 +1,7 @@
 <div class="container-fluid" style="margin-bottom: 20px;">
   <div class="row">
     <div class="col-sm-12">
-      <app-shopping-list-edit></app-shopping-list-edit>
+      <app-shopping-list-edit (addIngredient)="onAddIngredient($event)"></app-shopping-list-edit>
       <hr>
       <ul class="list-group">
         <a class="list-group-item" style="cursor: pointer;" *ngFor="let ingredient of ingredients">

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import { RecipeModel } from '../recipe.model';
 
 @Component({
@@ -7,6 +7,8 @@ import { RecipeModel } from '../recipe.model';
   styleUrls: ['./recipe-list.component.css']
 })
 export class RecipeListComponent implements OnInit {
+
+  @Output() selectRecipe = new EventEmitter<RecipeModel>();
 
   recipes: RecipeModel[] = [
     new RecipeModel('Cheesecake', 'Cheesecake is a sweet dessert consisting of one or more layers. The main, and thickest layer, consists of a mixture of soft, fresh cheese, eggs, and sugar. If there is a bottom layer, it often consists of a crust or base made from crushed cookies, graham crackers, pastry, or sometimes sponge cake.',
@@ -18,6 +20,10 @@ export class RecipeListComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onSelectRecipe(recipeModel: RecipeModel) {
+    this.selectRecipe.emit(recipeModel);
   }
 
 }
