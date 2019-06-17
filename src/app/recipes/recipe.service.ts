@@ -1,12 +1,10 @@
 import {RecipeModel} from './recipe.model';
-import {EventEmitter, Injectable} from '@angular/core';
+import {Injectable} from '@angular/core';
 import {IngredientModel} from '../shared/ingredient.model';
 import {ShoppingListService} from '../shopping-list/shopping-list.service';
 
 @Injectable()
 export class RecipeService {
-
-  private recipeSelected = new EventEmitter<RecipeModel>();
 
   private recipes: RecipeModel[] = [
 
@@ -42,16 +40,12 @@ export class RecipeService {
     return this.recipes.slice();
   }
 
-  subscribeToRecipeSelected(handlerFunction: (recipeModel: RecipeModel) => void) {
-    this.recipeSelected.subscribe(handlerFunction);
-  }
-
-  selectRecipe(recipe: RecipeModel) {
-    this.recipeSelected.emit(recipe);
-  }
-
   addIngredientsToShoppingList(ingredients: IngredientModel[]) {
     this.shoppingListService.addIngredients(ingredients);
+  }
+
+  getRecipe(id: number) {
+    return this.recipes[id];
   }
 
 }

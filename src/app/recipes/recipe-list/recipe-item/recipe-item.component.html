@@ -1,7 +1,7 @@
 <div class="list-group-item">
-  <div class="row">
+  <div class="row" style="cursor: pointer;" [routerLink]="[id]" routerLinkActive="active">
     <div class="col-sm-6">
-      <h4 class="list-group-item-heading"><a href="#" (click)="onSelectRecipe()">{{ recipe.name }}</a></h4>
+      <h4 class="list-group-item-heading">{{ recipe.name }}</h4>
       <p class="list-group-item-text">{{ recipe.description }}</p>
     </div>
     <div class="col-sm-6">
