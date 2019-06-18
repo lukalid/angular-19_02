@@ -13,6 +13,10 @@ export class RecipeListComponent implements OnInit, OnDestroy {
 
   recipes: RecipeModel[] = [];
   recipesChangedSubscription: Subscription;
+  filterString = '';
+  filterOptions = ['name', 'description'];
+  defaultFilterOption = this.filterOptions[0];
+  selectedFilterOption = this.defaultFilterOption;
 
   constructor(private recipeService: RecipeService, private activatedRoute: ActivatedRoute, private router: Router) { }
 
@@ -29,6 +33,10 @@ export class RecipeListComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.recipesChangedSubscription.unsubscribe();
+  }
+
+  onSelectFilterOption(selectedFilterOption: string) {
+    this.selectedFilterOption = selectedFilterOption;
   }
 
 }
