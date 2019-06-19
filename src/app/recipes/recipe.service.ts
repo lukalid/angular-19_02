@@ -60,7 +60,11 @@ export class RecipeService {
 
   deleteRecipe(id: number) {
     this.recipes.splice(id, 1);
-    console.log(this.recipes);
+    this.recipesChanged.next();
+  }
+
+  setRecipes(recipes: RecipeModel[]) {
+    this.recipes = recipes;
     this.recipesChanged.next();
   }
 

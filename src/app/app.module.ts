@@ -17,6 +17,8 @@ import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.compon
 import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 import {RecipeService} from './recipes/recipe.service';
 import { RecipeFilterPipe } from './pipes/recipe-filter.pipe';
+import {HttpClientModule} from '@angular/common/http';
+import {PersistenceService} from './shared/persistence.service';
 
 @NgModule({
   declarations: [
@@ -37,9 +39,10 @@ import { RecipeFilterPipe } from './pipes/recipe-filter.pipe';
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [ShoppingListService, RecipeService],
+  providers: [ShoppingListService, RecipeService, PersistenceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
