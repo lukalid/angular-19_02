@@ -10,11 +10,10 @@ import {HttpClientModule} from '@angular/common/http';
 import {PersistenceService} from './shared/persistence.service';
 import {AuthService} from './auth/auth.service';
 import {AuthGuard} from './auth/auth-guard.service';
-import {RecipesModule} from './recipes/recipes.module';
 import {SharedModule} from './shared/shared.module';
 import {ShoppingListModule} from './shopping-list/shopping-list.module';
 import {AuthModule} from './auth/auth.module';
-import { HomeComponent } from './home/home.component';
+import {HomeComponent} from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +25,6 @@ import { HomeComponent } from './home/home.component';
     BrowserModule, // contains common module and some more
     AppRoutingModule,
     HttpClientModule,
-    RecipesModule,
     SharedModule,
     ShoppingListModule,
     AuthModule
@@ -40,4 +38,5 @@ import { HomeComponent } from './home/home.component';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
