@@ -19,6 +19,8 @@ import {RecipeService} from './recipes/recipe.service';
 import { RecipeFilterPipe } from './pipes/recipe-filter.pipe';
 import {HttpClientModule} from '@angular/common/http';
 import {PersistenceService} from './shared/persistence.service';
+import { SignupComponent } from './auth/signup/signup.component';
+import { SigninComponent } from './auth/signin/signin.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import {PersistenceService} from './shared/persistence.service';
     DropdownDirective,
     RecipeStartComponent,
     RecipeEditComponent,
-    RecipeFilterPipe
+    RecipeFilterPipe,
+    SignupComponent,
+    SigninComponent
   ],
   imports: [
     BrowserModule,
