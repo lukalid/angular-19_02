@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {RecipeService} from '../recipes/recipe.service';
-import {PersistenceService} from '../shared/persistence.service';
+import {RecipeService} from '../../recipes/recipe.service';
+import {PersistenceService} from '../../shared/persistence.service';
 import {Router} from '@angular/router';
-import {AuthService} from '../auth/auth.service';
+import {AuthService} from '../../auth/auth.service';
 
 @Component({
   selector: 'app-header',
