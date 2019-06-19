@@ -8,20 +8,34 @@
       <li class="nav-item">
         <a class="nav-link" routerLink="/shopping-list" routerLinkActive="active">Shopping List</a>
       </li>
-      <div class="nav-item dropdown">
-        <a style="cursor: pointer;" appDropdown [dropdownMenu]="dropdownMenu" class="nav-link dropdown-toggle" role="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Manage
-        </a>
-        <div #dropdownMenu class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" style="cursor: pointer;" (click)="onSaveData()">Save Data</a>
-          <a class="dropdown-item" style="cursor: pointer;" (click)="onFetchData()">Fetch Data</a>
+
+      <ng-template [ngIf]="authService.isAuthenticated()">
+        <div class="nav-item dropdown">
+          <a style="cursor: pointer;" appDropdown [dropdownMenu]="dropdownMenu" class="nav-link dropdown-toggle" role="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Manage
+          </a>
+          <div #dropdownMenu class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" style="cursor: pointer;" (click)="onSaveData()">Save Data</a>
+            <a class="dropdown-item" style="cursor: pointer;" (click)="onFetchData()">Fetch Data</a>
+          </div>
         </div>
-      </div>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/signup" routerLinkActive="active">Register</a>
-      </li><li class="nav-item">
-      <a class="nav-link" routerLink="/signin" routerLinkActive="active">Login</a>
-    </li>
+      </ng-template>
+
+      <ng-template [ngIf]="!authService.isAuthenticated()">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/signup" routerLinkActive="active">Register</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/signin" routerLinkActive="active">Login</a>
+        </li>
+      </ng-template>
+
+      <ng-template [ngIf]="authService.isAuthenticated()">
+        <li class="nav-item">
+          <a class="nav-link" (click)="onLogout()" >Logout</a>
+        </li>
+      </ng-template>
+
     </ul>
   </div>
 </nav>

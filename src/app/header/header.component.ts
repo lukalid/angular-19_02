@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {RecipeService} from '../recipes/recipe.service';
 import {PersistenceService} from '../shared/persistence.service';
 import {Router} from '@angular/router';
+import {AuthService} from '../auth/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -11,7 +12,7 @@ import {Router} from '@angular/router';
 export class HeaderComponent implements OnInit {
 
   constructor(private persistenceService: PersistenceService, private recipeService: RecipeService,
-              private router: Router) { }
+              private router: Router, private authService: AuthService) { }
 
   ngOnInit() {
   }
@@ -29,6 +30,10 @@ export class HeaderComponent implements OnInit {
       (recipes => this.recipeService.setRecipes(recipes))
     );
     this.router.navigate(['/recipes']);
+  }
+
+  onLogout() {
+    this.authService.logout();
   }
 
 }
