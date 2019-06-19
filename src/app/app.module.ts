@@ -21,6 +21,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {PersistenceService} from './shared/persistence.service';
 import { SignupComponent } from './auth/signup/signup.component';
 import { SigninComponent } from './auth/signin/signin.component';
+import {AuthService} from './auth/auth.service';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,7 @@ import { SigninComponent } from './auth/signin/signin.component';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [ShoppingListService, RecipeService, PersistenceService],
+  providers: [ShoppingListService, RecipeService, PersistenceService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
